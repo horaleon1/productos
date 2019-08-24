@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Error from './Error';
+import axios from 'axios';
 
 export default function AgregarProducto() {
   //state
@@ -11,7 +12,7 @@ export default function AgregarProducto() {
   const leerValorRadio = e => {
     guardarCategoria(e.target.value);
   };
-  const agregarProducto = e => {
+  const agregarProducto = async e => {
     e.preventDefault();
 
     if (nombrePlatillo === "" || precioPlatillo === "" || categoria === "") {
@@ -19,6 +20,19 @@ export default function AgregarProducto() {
       return;
     }
       guardarError(false);
+
+      //crear un nuevo producto
+      try{
+        const resultado = await axios.post('http://localhost:4000/restaurant',{
+          nombrePlatillo,
+          precioPlatillo,
+          categoria
+        });
+        console.log(resultado);
+      } catch(error) {
+        console.log(error);
+      }
+
   };
 
   return (

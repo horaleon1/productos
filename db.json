@@ -11,6 +11,12 @@
       "nombrePlatillo": "Rib Eye 400g",
       "categoria": "cortes",
       "id": 2
+    },
+    {
+      "nombrePlatillo": "Ensalada",
+      "precioPlatillo": "1000",
+      "categoria": "ensalada",
+      "id": 3
     }
   ]
 }
