@@ -9,6 +9,10 @@ import axios from "axios";
 
 function App() {
   const [productos, guardarProductos] = useState([]);
+  const [recargarProductos, guardarRecargarProductos ] = useState(true);
+
+
+
 
   useEffect(() => {
     const consultarApi = async () => {
@@ -18,7 +22,10 @@ function App() {
       guardarProductos(resultado.data);
     };
     consultarApi();
-  });
+
+    //Cambiar a false la recarga de los productos
+    guardarRecargarProductos(false);
+  },[recargarProductos]);
 
   return (
     <Router>
@@ -28,7 +35,11 @@ function App() {
           <Route exact path="/productos" render = { () => (
             <Productos productos={ productos }/>
           )} />
-          <Route exact path="/nuevo-producto" component={AgregarProducto} />
+          <Route exact path="/nuevo-producto" render={ () => (
+             <AgregarProducto
+             guardarRecargarProductos={guardarRecargarProductos}
+            />
+          )}/>
           <Route exact path="/productos/:id" component={Producto} />
           <Route
             exact
