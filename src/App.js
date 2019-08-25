@@ -9,10 +9,7 @@ import axios from "axios";
 
 function App() {
   const [productos, guardarProductos] = useState([]);
-  const [recargarProductos, guardarRecargarProductos ] = useState(true);
-
-
-
+  const [recargarProductos, guardarRecargarProductos] = useState(true);
 
   useEffect(() => {
     const consultarApi = async () => {
@@ -25,41 +22,51 @@ function App() {
 
     //Cambiar a false la recarga de los productos
     guardarRecargarProductos(false);
-  },[recargarProductos]);
+  }, [recargarProductos]);
 
   return (
     <Router>
       <Header />
       <main className="container mt-5">
         <Switch>
-          <Route exact path="/productos" render = { () => (
-            <Productos 
-            productos={ productos }
-            guardarRecargarProductos={guardarRecargarProductos}
-            />
-          )} />
-          <Route exact path="/nuevo-producto" render={ () => (
-             <AgregarProducto
-             guardarRecargarProductos={guardarRecargarProductos}
-            />
-          )}/>
+          <Route
+            exact
+            path="/productos"
+            render={() => (
+              <Productos
+                productos={productos}
+                guardarRecargarProductos={guardarRecargarProductos}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/nuevo-producto"
+            render={() => (
+              <AgregarProducto
+                guardarRecargarProductos={guardarRecargarProductos}
+              />
+            )}
+          />
           <Route exact path="/productos/:id" component={Producto} />
           <Route
             exact
             path="/productos/editar/:id"
             render={props => {
-              //tomar el Id del producto 
+              //tomar el Id del producto
               const idProducto = parseInt(props.match.params.id);
 
               // el producto que se pasa al state
-              const producto = productos.filter(producto => producto.id === idProducto);
+              const producto = productos.filter(
+                producto => producto.id === idProducto
+              );
 
-              return(
+              return (
                 <EditarProducto
-                producto={ producto[0] }
-                guardarRecargarProductos={guardarRecargarProductos}
+                  producto={producto[0]}
+                  guardarRecargarProductos={guardarRecargarProductos}
                 />
-              )
+              );
             }}
           />
         </Switch>

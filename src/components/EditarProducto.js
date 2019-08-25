@@ -5,11 +5,10 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { withRouter } from "react-router-dom";
 
-function EditarProducto( props ) {
-
+function EditarProducto(props) {
   //destructuring de this.props.
 
-  const { producto, history, guardarRecargarProductos } = props
+  const { producto, history, guardarRecargarProductos } = props;
 
   //generar los refs refs recomendado para editar un registro
   const precioPlatilloRef = useRef("");
@@ -24,18 +23,20 @@ function EditarProducto( props ) {
     //validacion
 
     const nuevoPrecioPlatillo = precioPlatilloRef.current.value,
-          nuevoNombrePlatillo = nombrePlatilloRef.current.value;
+      nuevoNombrePlatillo = nombrePlatilloRef.current.value;
 
-          if(nuevoPrecioPlatillo === '' || nuevoNombrePlatillo === '' || categoria === '') {
-            guardarError(true);
-            return;
-          }
-          guardarError(false);
-
+    if (
+      nuevoPrecioPlatillo === "" ||
+      nuevoNombrePlatillo === "" ||
+      categoria === ""
+    ) {
+      guardarError(true);
+      return;
+    }
+    guardarError(false);
 
     //Revisar si cambio la categoria d elo contrario asignar el mismo valor
     let categoriaPlatillo = categoria === "" ? producto.categoria : categoria;
-
 
     //obtener los valores del formulario
     const editarPlatillo = {
@@ -67,7 +68,7 @@ function EditarProducto( props ) {
 
     //redirigir al usuario, consultar api
     guardarRecargarProductos(true);
-    history.push('/productos');
+    history.push("/productos");
   };
   const leerValorRadio = e => {
     guardarCategoria(e.target.value);

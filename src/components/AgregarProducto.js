@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Error from './Error';
-import axios from 'axios';
-import Swal from 'sweetalert2';
-import { withRouter } from 'react-router-dom';
+import Error from "./Error";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { withRouter } from "react-router-dom";
 
-function AgregarProducto( {history, guardarRecargarProductos} ) {
+function AgregarProducto({ history, guardarRecargarProductos }) {
   //state
   const [nombrePlatillo, guardarNombre] = useState("");
   const [precioPlatillo, guardarPrecio] = useState("");
@@ -21,45 +21,42 @@ function AgregarProducto( {history, guardarRecargarProductos} ) {
       guardarError(true);
       return;
     }
-      guardarError(false);
+    guardarError(false);
 
-      //crear un nuevo producto
-      try{
-        const resultado = await axios.post('http://localhost:4000/restaurant',{
-          nombrePlatillo,
-          precioPlatillo,
-          categoria
-        });
-        console.log(resultado);
-        if (resultado.status === 201){
-          Swal.fire(
-            'Producto Creado',
-            'El producto se creo correctamente',
-            'success'
-          )
-        }
-        
-      } catch(error) {
-        console.log(error);
-        Swal.fire({
-          type: 'error',
-          title: 'Error...',
-          text: 'Hubo un error, vuelve a intentarlo',
-        })
+    //crear un nuevo producto
+    try {
+      const resultado = await axios.post("http://localhost:4000/restaurant", {
+        nombrePlatillo,
+        precioPlatillo,
+        categoria
+      });
+      console.log(resultado);
+      if (resultado.status === 201) {
+        Swal.fire(
+          "Producto Creado",
+          "El producto se creo correctamente",
+          "success"
+        );
       }
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        type: "error",
+        title: "Error...",
+        text: "Hubo un error, vuelve a intentarlo"
+      });
+    }
 
     //redirigir al usuario a productor (con history)
-      guardarRecargarProductos(true);
-      history.push('/productos');
-
-
+    guardarRecargarProductos(true);
+    history.push("/productos");
   };
 
   return (
     <div className="col-md-8 mx-auto ">
       <h1 className="text-center">Agregar Nuevo Producto</h1>
 
-      {(error) ? <Error mensaje='Todos los campos son obligatorios' /> : null }
+      {error ? <Error mensaje="Todos los campos son obligatorios" /> : null}
 
       <form className="mt-5" onSubmit={agregarProducto}>
         <div className="form-group">

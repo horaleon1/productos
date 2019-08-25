@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export default function ProductosLista({ producto,guardarRecargarProductos }) {
+export default function ProductosLista({ producto, guardarRecargarProductos }) {
   const eliminarProducto = id => {
     console.log("eliminando", id);
     Swal.fire({
@@ -18,20 +18,17 @@ export default function ProductosLista({ producto,guardarRecargarProductos }) {
       cancelButtonText: "Cancelar"
     }).then(async result => {
       if (result.value) {
-        
         try {
           const url = `http://localhost:4000/restaurant/${id}`;
 
           const resultado = await axios.delete(url);
-  
+
           if (resultado.status === 200) {
             Swal.fire("Eliminado!", "El platillo de ha eliminado.", "success");
           }
           //consultar la api nuevmaente
           guardarRecargarProductos(true);
-
-        }
-        catch(error){
+        } catch (error) {
           console.log(error);
         }
       }
