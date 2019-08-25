@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import ProductosLista from './ProductosLista';
 
 
-export default function Productos( {productos} ) {
+export default function Productos( {productos, guardarRecargarProductos} ) {
   return (
     <Fragment>
       <h1 className="text-center"> Productos </h1>
@@ -11,6 +11,7 @@ export default function Productos( {productos} ) {
              <ProductosLista 
              producto={ producto }
              key={ producto.id }
+             guardarRecargarProductos={guardarRecargarProductos}
              />
           ))}
       </ul>

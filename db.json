@@ -1,59 +1,10 @@
 {
   "restaurant": [
     {
-      "precioPlatillo": "170",
-      "nombrePlatillo": "Cheese",
-      "categoria": {
-        "dispatchConfig": null,
-        "_targetInst": null,
-        "_dispatchListeners": null,
-        "_dispatchInstances": null,
-        "nativeEvent": null,
-        "type": null,
-        "target": null,
-        "eventPhase": null,
-        "bubbles": null,
-        "cancelable": null,
-        "defaultPrevented": null,
-        "isTrusted": null
-      },
-      "id": 1
-    },
-    {
-      "precioPlatillo": "200",
-      "nombrePlatillo": "Rib Eye 400g",
-      "categoria": "cortes",
-      "id": 2
-    },
-    {
-      "nombrePlatillo": "Ensalada",
-      "precioPlatillo": "1000",
-      "categoria": "ensalada",
-      "id": 3
-    },
-    {
-      "nombrePlatillo": "Agua de sabor",
-      "precioPlatillo": "50",
-      "categoria": "bebida",
-      "id": 4
-    },
-    {
       "nombrePlatillo": "Pastel de 3 leches",
       "precioPlatillo": "14000",
       "categoria": "postre",
       "id": 5
-    },
-    {
-      "nombrePlatillo": "Pollo Asado",
-      "precioPlatillo": "120",
-      "categoria": "cortes",
-      "id": 6
-    },
-    {
-      "nombrePlatillo": "Tacos",
-      "precioPlatillo": "350",
-      "categoria": "cortes",
-      "id": 7
     },
     {
       "nombrePlatillo": "Milanesa",

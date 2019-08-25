@@ -33,7 +33,10 @@ function App() {
       <main className="container mt-5">
         <Switch>
           <Route exact path="/productos" render = { () => (
-            <Productos productos={ productos }/>
+            <Productos 
+            productos={ productos }
+            guardarRecargarProductos={guardarRecargarProductos}
+            />
           )} />
           <Route exact path="/nuevo-producto" render={ () => (
              <AgregarProducto
