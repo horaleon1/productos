@@ -1,9 +1,22 @@
 {
   "restaurant": [
     {
-      "precioPlatillo": "200",
-      "nombrePlatillo": "Cheesecake",
-      "categoria": "postres",
+      "precioPlatillo": "170",
+      "nombrePlatillo": "Cheese",
+      "categoria": {
+        "dispatchConfig": null,
+        "_targetInst": null,
+        "_dispatchListeners": null,
+        "_dispatchInstances": null,
+        "nativeEvent": null,
+        "type": null,
+        "target": null,
+        "eventPhase": null,
+        "bubbles": null,
+        "cancelable": null,
+        "defaultPrevented": null,
+        "isTrusted": null
+      },
       "id": 1
     },
     {
@@ -41,6 +54,37 @@
       "precioPlatillo": "350",
       "categoria": "cortes",
       "id": 7
+    },
+    {
+      "nombrePlatillo": "Milanesa",
+      "precioPlatillo": "300",
+      "categoria": "cortes",
+      "id": 8
+    },
+    {
+      "precioPlatillo": "3456",
+      "nombrePlatillo": "Churros",
+      "categoria": {
+        "dispatchConfig": null,
+        "_targetInst": null,
+        "_dispatchListeners": null,
+        "_dispatchInstances": null,
+        "nativeEvent": null,
+        "type": null,
+        "target": null,
+        "eventPhase": null,
+        "bubbles": null,
+        "cancelable": null,
+        "defaultPrevented": null,
+        "isTrusted": null
+      },
+      "id": 9
+    },
+    {
+      "nombrePlatillo": "Tacos de lechuga",
+      "precioPlatillo": "123",
+      "categoria": "ensalada",
+      "id": 10
     }
   ]
 }

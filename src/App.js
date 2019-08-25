@@ -44,7 +44,20 @@ function App() {
           <Route
             exact
             path="/productos/editar/:id"
-            component={EditarProducto}
+            render={props => {
+              //tomar el Id del producto 
+              const idProducto = parseInt(props.match.params.id);
+
+              // el producto que se pasa al state
+              const producto = productos.filter(producto => producto.id === idProducto);
+
+              return(
+                <EditarProducto
+                producto={ producto[0] }
+                guardarRecargarProductos={guardarRecargarProductos}
+                />
+              )
+            }}
           />
         </Switch>
       </main>
